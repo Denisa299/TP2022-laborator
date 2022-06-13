@@ -1,0 +1,61 @@
+#include <string.h>
+#include <stdio.h>
+
+typedef unsigned uint;
+
+uint suma(uint local_number, uint local_sum)
+{
+	if (local_number == 0)
+		return local_sum;
+	else
+	{
+		local_sum = local_sum + local_number;
+		suma(local_number - 1, local_sum);
+	}
+
+
+}
+int factorial(int nr)
+{
+	if (nr == 0)
+		return 1;
+	else
+		return nr*factorial(nr - 1);
+}
+int inversare(int n, int m)
+{
+	if (n == 0)
+		return m;
+	else
+		return inversare(n / 10, m * 10 + n % 10);
+}
+int cmmdc(int a, int b)
+{
+	if (b == 0)
+		b = a;
+	else
+		cmmdc(b, a%b);
+}
+int sumacifre(int n)
+{
+	if (n)
+		return n % 10 + sumacifre(n / 10);
+	else
+		return 0;
+}
+int main()
+{
+	uint rezultat, nr = 13, s = 0,f,inv,c,sum;
+	rezultat = suma(nr, s);
+	f = factorial(nr);
+	inv = inversare(nr,s);
+	c = cmmdc(nr, s);
+	sum = sumacifre(nr);
+	printf("Suma primelor %d numere este: %d \n", nr, rezultat);
+	printf("Factorialul primelor numere este %d \n", f);
+	printf("Inversul numarului este: %d \n", inv);
+	printf("cmmdc este: %d \n", c);
+	printf("Suma cifrelor unui numar este: %d\n", sum);
+		system("pause");
+	return 0;
+}

@@ -1,0 +1,42 @@
+#include<string.h> //inversare
+#include<stdio.h>
+#include<stdlib.h>
+int inversarea_cifrelor(int n)
+{
+	if (n == 0)
+		return 0;
+	else 
+	{
+		printf("%d", n % 10);
+		return inversarea_cifrelor(n / 10);
+	}
+}
+int main()
+{
+	printf("%l", inversarea_cifrelor(12));
+	return 0;
+}
+
+
+//suma
+
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int suma_cif = 0;
+int Suma_cifrelor(int n)
+{
+	if (n < 10)
+	{
+		return n;
+	}
+	else
+	{
+		return  suma_cif=n % 10 + Suma_cifrelor(n / 10);
+	}
+}
+int main()
+{
+	printf("%d", Suma_cifrelor(1999));
+	return 0;
+}
